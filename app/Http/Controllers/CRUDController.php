@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
+use App\User;
 
 class CRUDController extends Controller
 {
@@ -13,7 +14,7 @@ class CRUDController extends Controller
      */
     public function index()
     {
-        //
+        return view('register');
     }
 
     /**
@@ -34,7 +35,16 @@ class CRUDController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $user = new User([
+          'name' => $request->get('name'),
+          'email' => $request->get('email'),
+          'password' => $request->get('password'),
+          'remember_token' => $request->get('remember_token'),
+          'post' => $request->get('post')
+        ]);
+
+        $user->save();
+        return redirect('/login');
     }
 
     /**
@@ -80,5 +90,28 @@ class CRUDController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function isauth(Request $request)
+    {   
+        // $users = User::all();
+        // foreach ($users as $user){
+        //    if( ( $user->email == $request->get('email') ) &&  ( $user->password == $request->get('password'))){
+        //         return redirect('/home');
+        //    }
+        // }
+        $credentials = [
+            'email' => $request->get('email'),
+            'password' =>  $request->get('password'),
+        ];
+        $valid = Auth::validate($credentials);
+        if ( ! $valid)
+        {
+            //  return redirect('/login');
+        }
+        else {
+            return redirect('/home');
+        }
+        
+     
     }
 }
