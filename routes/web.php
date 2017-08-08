@@ -22,18 +22,14 @@ Route::get('/login', function () {
 });
 
 Route::get('/register', 'CRUDController@index' );
-Route::get('/home', function () {
-    return view('pages.home');
-});
+Route::get('/home', 'HOMEController@index' );
 Route::resource('crud', 'CRUDController');
 Route::post('store_user', 'CRUDController@store');
 Route::post('invalid','CRUDController@isauth');
-Route::get('/', function()
-{
-    return View::make('pages.home');
-});
-
+Route::get('/weather', 'WeatherController@index' );
 Route::get('contact', function()
 {
     return View::make('pages.contact');
 });
+Route::post('homeRedirect', 'HOMEController@index' );
+Route::post('getWeatherByCityName', 'HOMEController@getWeatherByCityName');

@@ -1,4 +1,10 @@
 @extends('layouts.default')
+<!-- @extends('app') -->
 @section('content')
-    i am the contact page
-@stop
+
+
+Im contact
+
+
+
+@endsection
