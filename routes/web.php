@@ -12,17 +12,28 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')
+    ->with('login_errors', true);
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('login')
+    ->with('login_errors',"");
 });
 
 Route::get('/register', 'CRUDController@index' );
 Route::get('/home', function () {
-    return view('home');
+    return view('pages.home');
 });
 Route::resource('crud', 'CRUDController');
 Route::post('store_user', 'CRUDController@store');
-Route::post('checkLogin','CRUDController@isauth');
+Route::post('invalid','CRUDController@isauth');
+Route::get('/', function()
+{
+    return View::make('pages.home');
+});
+
+Route::get('contact', function()
+{
+    return View::make('pages.contact');
+});

@@ -1,0 +1,7 @@
+#sidebar {
+    background-color:skyblue;
+    min-height: calc(100vh - 90px);    
+}
+.navbar{
+    margin-bottom: 0px;
+}

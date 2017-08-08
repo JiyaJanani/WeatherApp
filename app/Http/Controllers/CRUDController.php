@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\User;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+
 
 class CRUDController extends Controller
 {
@@ -91,27 +95,45 @@ class CRUDController extends Controller
     {
         //
     }
+
+   
     public function isauth(Request $request)
     {   
-        // $users = User::all();
-        // foreach ($users as $user){
-        //    if( ( $user->email == $request->get('email') ) &&  ( $user->password == $request->get('password'))){
-        //         return redirect('/home');
-        //    }
+         $users = User::all();
+         foreach ($users as $user){
+            if( ( $user->email == $request->get('email') ) &&  ( $user->password == $request->get('password'))){
+                 return redirect('/home');
+            }
+            else {
+               
+            }
+         }
+          return view('login')
+                ->with('login_errors', "Invalid username or password");
+    }
+    // protected function getFailedLoginMessage()
+    //     {
+    //         return 'These credentials do not match our records.';
+    //     }
+
+
+        
+        // $credentials = [
+        //     'email' => $request->get('email'),
+        //     'password' =>  $request->get('password'),
+        // ];
+        // $valid = Auth::validate($credentials);
+        // return (string) $valid;
+        // if ($valid)
+        // {
+        //     return ( $request->get('email'));
+        //    // return redirect('/login');
         // }
-        $credentials = [
-            'email' => $request->get('email'),
-            'password' =>  $request->get('password'),
-        ];
-        $valid = Auth::validate($credentials);
-        if ( ! $valid)
-        {
-            //  return redirect('/login');
-        }
-        else {
-            return redirect('/home');
-        }
+        // else {
+        //      return ( $request->get('password'));
+        //   //  return redirect('/home');
+        // }
         
      
-    }
+    
 }

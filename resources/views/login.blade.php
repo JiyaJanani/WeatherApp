@@ -9,7 +9,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Login</div>
                                     <div class="panel-body">
-                                        <form class="form-horizontal" role="form" method="POST" action="checkLogin">
+                                        <form class="form-horizontal" role="form" method="POST" action="invalid">
                                             <div class="form-group">
                                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
                                                 <div class="col-md-6">
@@ -18,8 +18,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                             
                                                 <label for="password" class="col-md-4 control-label">Password</label>
-
+                
                                                 <div class="col-md-6">
                                                     <input id="password" type="password" class="form-control" name="password" required>
 
@@ -41,12 +42,12 @@
                                                     <button type="submit" class="btn btn-primary">
                                                         Login 
                                                     </button>
-
                                                     <a class="btn btn-link" href="">
                                                         Forgot Your Password?
                                                     </a>
                                                 </div>
-                                            </div>                                           
+                                            </div> 
+                                           <div class="panel-heading"> <?php echo $login_errors ?> </div>
                                         </form>
                                     </div>
                                 </div>

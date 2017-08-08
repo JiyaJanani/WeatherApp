@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.default')
 
 @section('content')
 <div class="container-fluid">
@@ -21,7 +21,7 @@
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
 						{!! csrf_field() !!}
 
-						<div class="form-group">
+						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 							<label class="col-md-4 control-label">E-Mail Address</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -54,6 +54,7 @@
 						</div>
 					</form>
 				</div>
+				<?php $login_errors ?>
 			</div>
 		</div>
 	</div>
