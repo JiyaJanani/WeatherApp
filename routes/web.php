@@ -27,9 +27,11 @@ Route::resource('crud', 'CRUDController');
 Route::post('store_user', 'CRUDController@store');
 Route::post('invalid','CRUDController@isauth');
 Route::get('/weather', 'WeatherController@index' );
+Route::get('forgotPassword', 'ForgotPasswordController@index' );
 Route::get('contact', function()
 {
     return View::make('pages.contact');
 });
+
 Route::post('homeRedirect', 'HOMEController@index' );
 Route::post('getWeatherByCityName', 'HOMEController@getWeatherByCityName');
