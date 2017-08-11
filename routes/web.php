@@ -25,7 +25,7 @@ Route::get('/register', 'CRUDController@index' );
 Route::get('/home', 'HOMEController@index' );
 Route::resource('crud', 'CRUDController');
 Route::post('store_user', 'CRUDController@store');
-Route::post('invalid','CRUDController@isauth');
+Route::post('invalid','CRUDController@invalid');
 Route::get('/weather', 'WeatherController@index' );
 Route::get('forgotPassword', 'ForgotPasswordController@index' );
 Route::get('contact', function()

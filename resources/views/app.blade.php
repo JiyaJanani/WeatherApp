@@ -19,6 +19,10 @@
 	.form-control{
 		font-weight: 700;
 	}
+	.error-msg{
+		font-weight: 600;
+		color: rgba(255, 4, 4, 0.82);
+	}
 
 	</style>
 	<link href="./resources/assets/app.css">

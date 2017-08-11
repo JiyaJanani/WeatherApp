@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="content">
     <div class="container">
         <div class="row">
@@ -26,17 +28,6 @@
 
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="remember" > Remember Me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-group margin-bottom-3">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
@@ -47,8 +38,11 @@
                                     </a>
                                 </div>
                             </div> 
-                            <div class="panel-heading"> <?php echo $login_errors ?> </div>
-                        </form>
+                            <div class="panel-heading">  </div>
+                        </form>                                                    
+                            @if( isset( $error) )
+                            <div class="error-msg"> {{ $error }} </div>
+                            @endif
                     </div>
                 </div>
             </div>
